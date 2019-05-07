@@ -1,0 +1,85 @@
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
+public class ThePlayer implements Comparable<ThePlayer> {
+	
+	private String playerName;
+	private ImageIcon playerIcon;
+	private int numWins;
+
+	public ThePlayer() {
+		playerIcon = new ImageIcon(getClass().getResource(""));
+		playerName = " ";
+	}
+	
+	public ThePlayer(ImageIcon playerIcon) {
+		this("Jane Doe", playerIcon);
+	}
+	
+	public ThePlayer(String playerName, ImageIcon playerSymbol) {
+		this.playerName = playerName;
+		this.playerIcon = playerSymbol;
+		this.numWins = 0;
+	}
+	
+	public void addNumWins() {
+		this.numWins++;
+	}
+
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
+	}
+
+	public ImageIcon getPlayerSymbol() {
+		return playerIcon;
+	}
+
+	public void setPlayerSymbol(ImageIcon playerSymbol) {
+		this.playerIcon = playerSymbol;
+	}
+
+	public int getNumWins() {
+		return numWins;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof ThePlayer) {
+			ThePlayer otherPlayer = (ThePlayer) obj;
+			if (this.playerName.equals(otherPlayer.getPlayerName())) {
+				if (this.playerIcon.equals(otherPlayer.getPlayerSymbol())) {
+					if (this.numWins == otherPlayer.getNumWins()) {
+						return true; 
+					}
+				}
+			}
+		}
+		
+		return false;
+	}
+
+	@Override
+	public String toString() {
+		return "Player [ playerName = " + this.playerName +
+						"                  , playerSymbol = " + this.playerIcon +
+						", numWins = " + this.numWins + "]";
+	}
+
+	@Override
+	public int compareTo(ThePlayer o) {
+		if (this.numWins > o.getNumWins()) {
+			return 1;
+		} else if (this.numWins == o.getNumWins()) {
+			return 0;
+		} else {
+			return -1;
+		}
+	}
+
+	
+
+}
