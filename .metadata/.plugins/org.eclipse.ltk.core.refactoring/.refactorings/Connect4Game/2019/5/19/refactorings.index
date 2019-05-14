@@ -9,3 +9,7 @@
 1557271269108	Rename field 'playerName'
 1557271316932	Rename method 'addNumWins'
 1557271339353	Rename field 'numWins'
+1557367655668	Rename type 'Connect4Game'
+1557367679942	Rename type 'Game'
+1557367699287	Rename type 'ThePlayer'
+1557367830439	Rename type 'Connect4'
